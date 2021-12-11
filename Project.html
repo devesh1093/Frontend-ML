@@ -1,0 +1,260 @@
+<html>
+<head>
+<title>HTML Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type = "text/css">
+.container {width:1000px; margin-left:auto; margin-right:auto;}
+.header {background-color :#441111}
+.header h1 {color:white; line-height:80px;}
+.header img {float:left; height:80px}
+</style>
+</head>
+
+<body>
+<div class = "container">
+	<div class = "header">
+		<img src = "https://www3.cs.stonybrook.edu/~skiena/591/final_projects/baby_weight/img/baby_small.png">
+		<h1>Predicting Birth Weight of the Baby</h1>
+	</div>
+<!--<form method = "post" action="?action=submitfunc">-->
+<form method = "post" action="?action=submitfunc" onsubmit="return display()">
+		<fieldset>
+			<legend>Mother's Information:</legend>
+			<table style="width:100%">
+			<tr>
+				<td><label for="marital">Marital Status: </label></td>
+				<td><select name="marital" id="marital">
+					<option value="1">Married</option>
+					<option value="2">Unmarried</option>
+				</select></td>
+			</tr>	
+			<tr>	
+				<td><label for="Your age">Age(10-55 years):</label></td>
+				<td><input name="mage" id="mage" required></td>
+			</tr>	
+			<tr>
+				<td><label for="MEDUC">Years of education:</label></td>
+				<td><input name="meduc" id="MEDUC" required></td>
+			</tr>	
+			<tr>	
+				<td><label for="CIGNUM">Average # Cigarettes Used Daily:</label></td>
+				<td><input name="CIGNUM" id="CIGNUM" required></td>
+			</tr>	
+			<tr>	
+				<td><label for="DRINKNUM">Average # Drinks Used Daily:</label></td>
+				<td><input name="DRINKNUM" id="DRINKNUM" required></td>
+			</tr>
+			<tr>
+				<td><label for="RACEMOM">Race of the mother/child: </label></td>
+				<td><select name="RACEMOM" id="RACEMOM">
+					<option value="1">White</option>
+					<option value="2">Black</option>
+					<option value="3">American Indian</option>
+					<option value="4">Chinese</option>
+					<option value="5">Japanese</option>
+					<option value="6">Hawaiian</option>
+					<option value="7">Filipino</option>
+					<option value="8">Other Asian or Pacific Islander</option>
+					<option value="9">Hispanic</option>
+					<option value="0">Other Nonwhite</option>
+				</select></td>
+			</tr>
+			</table>
+		</fieldset>
+				<fieldset>
+			<legend>Father's Information:</legend>
+			<table style="width:100%">
+			<tr>	
+				<td><label for="Age">Age(14-95 years):</label></td>
+				<td><input name="fage" id="fage" required></td>
+			</tr>	
+			<tr>	
+				<td><label for="FEDUC">Years of education:</label></td>
+				<td><input name="feduc" id="FEDUC" required></td>
+			</tr>	
+			<tr>
+				<td><label for="RACEDAD">Race of the father: </label></td>
+				<td><select name="RACEDAD" id="RACEDAD">
+					<option value="1">White</option>
+					<option value="2">Black</option>
+					<option value="3">American Indian</option>
+					<option value="4">Chinese</option>
+					<option value="5">Japanese</option>
+					<option value="6">Hawaiian</option>
+					<option value="7">Filipino</option>
+					<option value="8">Other Asian or Pacific Islander</option> 
+					<option value="9">Hispanic</option>
+					<option value="0">Other Nonwhite</option>
+				</select></td>
+			</tr>
+			</table>
+		</fieldset>
+		<fieldset>
+			<legend>Medical history of the Mother</legend>
+			<table style="width:100%">
+				<tr>
+				<td><label for="Anemia">Anemia</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Anemia" id="Anemia" value="1">
+				<label >No</label>
+				<input type="radio" name="Anemia" id="Anemia" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="CARDIAC">Cardiac disease</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="CARDIAC" id="CARDIAC" value="1">
+				<label >No</label>
+				<input type="radio" name="CARDIAC" id="CARDIAC" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="ACLUNG">Acute or chronic lung disease</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="ACLUNG" id="ACLUNG" value="1">
+				<label >No</label>
+				<input type="radio" name="ACLUNG" id="ACLUNG" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Diabetes">Diabetes</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Diabetes" id="Diabetes" value="1">
+				<label >No</label>
+				<input type="radio" name="Diabetes" id="Diabetes" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Herpes">Genital Herpes</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Herpes" id="Herpes" value="1">
+				<label >No</label>
+				<input type="radio" name="Herpes" id="Herpes" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Hydram">Hydramnios/Oligohydramnios</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Hydram" id="Hydram" value="1">
+				<label >No</label>
+				<input type="radio" name="Hydram" id="Hydram" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Hemoglob">Hemoglobinopathy</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Hemoglob" id="Hemoglob" value="1">
+				<label >No</label>
+				<input type="radio" name="Hemoglob" id="Hemoglob" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Hyperch">Hypertension(Chronic)</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Hyperch" id="Hyperch" value="1">
+				<label >No</label>
+				<input type="radio" name="Hyperch" id="Hyperch" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Hyperpr">Hypertension(Pregnancy)</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Hyperpr" id="Hyperpr" value="1">
+				<label >No</label>
+				<input type="radio" name="Hyperpr" id="Hyperpr" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Eclamp">Eclampsia</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Eclamp" id="Eclamp" value="1">
+				<label >No</label>
+				<input type="radio" name="Eclamp" id="Eclamp" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Cervix">Incompetent Cervix</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Cervix" id="Cervix" value="1">
+				<label >No</label>
+				<input type="radio" name="Cervix" id="Cervix" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Pinfant">Previous infant 4000+ grams</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Pinfant" id="Pinfant" value="1">
+				<label >No</label>
+				<input type="radio" name="Pinfant" id="Pinfant" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Renal">Renal disease</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Renal" id="Renal" value="1">
+				<label >No</label>
+				<input type="radio" name="Renal" id="Renal" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Rhsen">Rh sensitization</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Rhsen" id="Rhsen" value="1">
+				<label >No</label>
+				<input type="radio" name="Rhsen" id="Rhsen" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Preterm">Previous preterm /small infant</label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Preterm" id="Preterm" value="1">
+				<label >No</label>
+				<input type="radio" name="Preterm" id="Preterm" value="0"></td>
+			</tr>
+			<tr>
+				<td><label for="Uterine">Uterine Bleeding </label></td>
+				<td><label >Yes</label>
+				<input type="radio" name="Uterine" id="Uterine" value="1">
+				<label >No</label>
+				<input type="radio" name="Uterine" id="Uterine" value="0"></td>
+			</tr>
+		</table>
+	</fieldset>
+	
+		<fieldset>
+			<legend>Baby Information</legend>
+			<table style="width:100%">
+			<tr>
+				<td><label for="visits">No of prenatal visits: </label></td>
+					<td><input name="visits" id="visits" required></td>
+			</tr>
+			<!-- <tr>
+				<td><label for="sex">Sex: </label></td>
+				<td><select name="sex" id="sex">
+					<option value="1">Male</option>
+					<option value="2">Female</option>
+				</select></td>
+			</tr> -->
+			<tr>	
+				<td><label for="Weight Gained">Weight Gained:</label></td>
+				<td><input name="GAINED" id="GAINED" required></td>
+			</tr>
+			<tr>	
+				<td><label for="TOTALP">Total Pregnancies (Including This One):</label></td>
+				<td><input name="TOTALP" id="TOTALP" required></td>
+			</tr>
+			<tr>	
+				<td><label for="BDEAD">Number of Children Born Alive Now Dead:</label></td>
+				<td><input name="BDEAD" id="BDEAD" required></td>
+			</tr>
+			<tr>	
+				<td><label for="TERMS">Number of Other Terminations</label></td>
+				<td><input name="TERMS" id="TERMS" required></td>
+			</tr>
+			<tr>
+				<td><label for="LOUTCOME">Outcome of Last Delivery: </label></td>
+				<td><select name="LOUTCOME" id="LOUTCOME" required>
+					<option value="1">Live Birth</option>
+					<option value="2">Fetal Death</option>
+				</select></td>
+			</tr>
+			<tr>	
+				<td><label for="WEEKS">Completed Weeks of Gestation (calculated)</label></td>
+				<td><input name="WEEKS" id="WEEKS" required></td>
+			</tr>
+			</table>
+		</fieldset>
+	<br><br>
+	<input type="submit" value="Submit" name = "submit">
+
+	</form>
+</div>
+	</body>
+
+</html>  
